@@ -14,9 +14,9 @@ if [ `whoami` != 'root' ]; then
     exit 0
 fi
 
-#if [ -d /opt/cif ]; then
-#	bash upgrade.sh
-#fi
+if [ -d /opt/cif ]; then
+	bash upgrade.sh
+fi
 
 apt-get update
 apt-get install -qq software-properties-common python-software-properties
