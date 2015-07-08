@@ -1,0 +1,30 @@
+defaults:
+  confidence: 85
+  provider: openbl.org
+  tlp: green
+  description: 'Seen in bruteforce attacks against various services'
+  altid: 'http://www.openbl.org/lists/base_1days.txt'
+
+feeds:
+  scanners:
+    remote: http://www.openbl.org/lists/base_1days.txt
+    application:
+      - ssh
+      - telnet
+      - smtp
+      - mail
+      - http
+      - ftp
+    portlist:
+      - 22
+      - 23
+      - 21
+      - 25
+      - 80
+      - 443
+    pattern: ^(\S+)$
+    tags: scanner
+    protocol: tcp
+    altid: <remote>
+    altid_tlp: green
+    values: observable

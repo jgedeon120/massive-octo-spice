@@ -1,0 +1,15 @@
+defaults:
+  provider: cert_mxlist
+  tlp: amber
+  confidence: 75
+  tags: spam
+  description: 'Cache poisoning of mail handling domains'
+
+feeds:
+  ips:
+    otype: ipv4
+    remote: http://www.cert.org/downloads/mxlist.ips.txt
+    pattern: ^(\S+)$
+    values: observable
+    application: smtp
+    protocol: tcp

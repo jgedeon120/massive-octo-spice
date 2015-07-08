@@ -1,0 +1,16 @@
+defaults:
+  provider: torproject.org
+  tlp: white
+  confidence: 95
+  tags:
+    - tor
+    - proxy
+  values:
+    - observable
+    - lasttime
+  description: 'Tor Exit Node'
+
+feeds:
+  tor_ip:
+    remote: https://check.torproject.org/exit-addresses
+    pattern: ^ExitAddress (\S+) (.+)$

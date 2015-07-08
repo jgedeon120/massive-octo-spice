@@ -1,0 +1,29 @@
+defaults:
+  provider: sigmaprojects.org
+  tlp: green
+  confidence: 80
+  group: everyone
+
+feeds:
+  exploits:
+    remote: https://blocklist.sigmaprojects.org/api.cfc?method=getList&lists=webexploit
+    pattern: ^(\S+)$
+    values: observable
+    tags:
+      - exploits
+      - malicious
+
+  spyware:
+    remote: https://blocklist.sigmaprojects.org/api.cfc?method=getList&lists=spyware
+    pattern: ^(\S+)$
+    values: observable
+    tags:
+      - malware
+      - malicious
+
+  atma:
+    remote: https://blocklist.sigmaprojects.org/api.cfc?method=getList&lists=atma
+    pattern: ^(\S+)$
+    values: observable
+    tags:
+      - scanner

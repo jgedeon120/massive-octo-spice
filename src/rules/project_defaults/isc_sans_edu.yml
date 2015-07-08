@@ -1,0 +1,18 @@
+defaults:
+  tlp: amber
+  provider: 'isc.sans.edu'
+  pattern:  '^(\S+)$'
+  values: observable
+  tags: suspicious
+  skip: '^Site$'
+
+feeds:
+  02_domains_low:
+    confidence: 65
+    remote: http://isc.sans.edu/feeds/suspiciousdomains_Low.txt
+  01_domains_medium:
+    confidence: 75
+    remote:  http://isc.sans.edu/feeds/suspiciousdomains_Medium.txt
+  00_domains_high:
+    confidence: 85
+    remote: http://isc.sans.edu/feeds/suspiciousdomains_High.txt

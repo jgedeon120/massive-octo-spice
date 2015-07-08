@@ -1,0 +1,13 @@
+defaults:
+  tlp: amber
+  provider: localhost
+  tags: whitelist
+  confidence: 85
+
+# example
+# feeds:
+#   domains:
+#     remote: /var/smrt/cache/localhost_whitelist_domains
+#     pattern: '^(\S+)$'
+#     values:
+#       - observable

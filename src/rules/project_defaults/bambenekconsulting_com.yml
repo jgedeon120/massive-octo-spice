@@ -1,0 +1,17 @@
+defaults:
+  provider: osint.bambenekconsulting.com
+  tlp: amber
+  confidence: 85
+  alt_tlp: green
+  tags:
+    - botnet
+  values:
+      - observable
+      - description
+      - lasttime
+      - altid
+
+feeds:
+  domains:
+    remote: http://osint.bambenekconsulting.com/feeds/c2-dommasterlist.txt
+    pattern: ^(\S+)\,Domain used by ([^,]+)\,([^,]+)\,(\S+)$

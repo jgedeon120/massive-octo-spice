@@ -1,0 +1,20 @@
+parser: regex
+defaults:
+  provider: uceprotect.net
+  tlp: green
+  otype: ipv4
+
+feeds:
+  spammers1:
+    remote: http://wget-mirrors.uceprotect.net/rbldnsd-all/dnsbl-1.uceprotect.net.gz
+    pattern: ^(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})$
+    values:
+      - observable
+    tags:
+      - spam
+    application: smtp
+    protocol: tcp
+    portlist: 25
+    description: 'Known Spam Sending IP Address'
+    altid: 'http://www.uceprotect.net/en/rblcheck.php?ipr=<observable>'
+    confidence: 85

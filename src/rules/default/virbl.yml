@@ -1,0 +1,15 @@
+defaults:
+  provider: virbl.org
+  tlp: green
+  confidence: 90
+  tags: malicious
+  group: everyone
+  skip: '^Export .+$'
+  pattern: ^(\S+)$
+  description: 'Address seen sending viruses via mail servers'
+  values: observable
+  altid: 'http://virbl.org/lookup/index.php?ip=<observable>&x=9&y=8'
+
+feeds:
+  ips:
+    remote: http://virbl.org/download/virbl.dnsbl.bit.nl.txt

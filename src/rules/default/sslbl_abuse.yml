@@ -1,0 +1,35 @@
+parser: csv
+defaults:
+  provider: sslbl.abuse.ch
+  tlp: green
+  confidence: 85
+
+feeds:
+  sha1:
+    remote: https://sslbl.abuse.ch/blacklist/sslblacklist.csv
+    tags:
+      - malware
+      - ssl
+      - botnet
+    application: https
+    protocol: tcp
+    values:
+      - reporttime
+      - observable
+      - description
+    altid: https://sslbl.abuse.ch/intel/<observable>
+
+  ipv4:
+    remote: https://sslbl.abuse.ch/blacklist/sslipblacklist.csv
+    tags:
+      - malware
+      - ssl
+      - botnet
+    application: https
+    protocol: tcp
+    values:
+      - observable
+      - portlist
+      - description
+    confidence: 75
+    altid: 'Blacklisted SSL Fingerprint reported on this IP'

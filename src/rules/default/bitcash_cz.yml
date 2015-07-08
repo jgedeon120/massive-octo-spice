@@ -1,0 +1,15 @@
+defaults:
+  provider: bitcash.cz
+  tlp: white
+  confidence: 90
+  tags: malicious
+  description: 'banned for serious abusing of our services'
+
+feeds:
+  ips:
+    otype: ipv4
+    remote: http://bitcash.cz/misc/log/blacklist
+    pattern: ^(\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}).+last access (\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})$
+    values:
+      - observable
+      - reporttime

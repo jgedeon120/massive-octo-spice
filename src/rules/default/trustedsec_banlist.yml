@@ -1,0 +1,13 @@
+defaults:
+  provider: trustedsec.com
+  tlp: white
+  tags: scanner
+  group: everyone
+  confidence: 90
+  values: observable
+  description: 'Attacks logged in Honeypot'
+
+feeds:
+  ips:
+    remote: https://www.trustedsec.com/banlist.txt
+    pattern: ^(\S+)$

@@ -1,0 +1,12 @@
+defaults:
+  provider: labs.snort.org
+  tlp: white
+  confidence: 85
+  tags: scanner
+  altid: 'http://labs.snort.org/feeds/ip-filter.blf'
+
+feeds:
+  ips:
+    remote: http://labs.snort.org/feeds/ip-filter.blf
+    pattern: ^(\S+)$
+    values: observable

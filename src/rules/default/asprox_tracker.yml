@@ -1,0 +1,16 @@
+defaults:
+  provider: atrack.h3x.eu
+  tlp: white
+  confidence: 75
+  tags: botnet
+  group: everyone
+  description: 'Asprox C&C Site'
+
+feeds:
+  ips:
+    remote: http://atrack.h3x.eu/api/asprox_all.php
+    protocol: tcp
+    pattern: ^([^:]+):(\d+)$
+    values:
+      - observable
+      - portlist

@@ -1,0 +1,13 @@
+defaults:
+  tlp: white
+  provider: malshare.com
+  pattern: ^(\S+)$
+  values: observable
+  tags: malware
+  confidence: 85
+  description: 'Malware hash'
+  altid: http://malshare.com/sample.php?action=detail&hash=<observable>
+
+feeds:
+  filehash:
+    remote: http://www.malshare.com/daily/malshare.current.txt
