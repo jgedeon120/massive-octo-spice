@@ -2,7 +2,7 @@
 
 set -e
 
-BRANCH="master"
+BRANCH="SR"
 ARCH=`/bin/uname -m`
 
 if [ `whoami` != 'root' ]; then
@@ -33,7 +33,7 @@ fi
 case $OS in
     "Ubuntu" )
         sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install -y htop build-essential automake autoconf git
-        git clone https://github.com/csirtgadgets/massive-octo-spice.git -b $BRANCH
+        git clone https://github.com/jgedeon120/massive-octo-spice.git -b $BRANCH
         cd massive-octo-spice
         bash autogen.sh
         sudo bash ./hacking/platforms/easybutton.sh
