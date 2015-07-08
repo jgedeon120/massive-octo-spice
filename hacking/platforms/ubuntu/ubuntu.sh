@@ -153,7 +153,7 @@ update-rc.d cif-services defaults 99 01
 
 cd hacking/platforms/ubuntu
 #bash bind9.sh
-#cd ../../../
+cd ../../../
 
 echo 'staring cif-services...'
 sudo service cif-services start
