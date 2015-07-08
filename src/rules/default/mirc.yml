@@ -8,6 +8,8 @@ defaults:
   application: irc
   remote: http://www.mirc.com/servers.ini
   altid: <remote>
+  description: 'IRC Address'
+  otype: fqdn
 
 feeds:
   domains:
@@ -15,4 +17,3 @@ feeds:
     values:
       - observable
       - portlist
-

@@ -2,17 +2,19 @@ defaults:
   provider: malwareurls.joxeankoret.com
   confidence: 65
   tlp: amber
-  tags:
-    - malware
-  altid_tlp: green
-  values:
-    - observable
+  tags: malware
+  altid_tlp: amber
+  values: observable
 
 feeds:
   urls:
+    optype: url
     remote: http://malwareurls.joxeankoret.com/normal.txt
-    pattern: '^(http:\/\/\S+)$'
+    pattern: ^(http:\/\/\S+)$
+    description: 'Malware URL'
 
   domains:
+    otype: fqdn
     remote: http://malwareurls.joxeankoret.com/domains.txt
-    pattern: '^([a-zA-Z0-9]\S+)$'
+    pattern: ^([a-zA-Z0-9]\S+)$
+    description: 'Malware Domain'

@@ -2,6 +2,8 @@ defaults:
   provider: 'danger.rulez.sk'
   confidence: 85
   tlp: green
+  description: 'IP address seen in ssh bruteforce attacks.'
+  altid: 'http://danger.rulez.sk/projects/bruteforceblocker/blist.php'
 
 feeds:
   ssh:
@@ -14,4 +16,3 @@ feeds:
     values:
       - observable
       - lasttime
-

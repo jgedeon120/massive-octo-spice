@@ -1,6 +1,7 @@
 parser: json
 defaults:
   provider: phishtank.com
+  description: 'Known phishing sites'
   tlp: amber
   application:
     - http
@@ -10,6 +11,7 @@ defaults:
   protocol: tcp
   remote: http://data.phishtank.com/data/online-valid.json.gz
   altid_tlp: green
+  altid: 'http://data.phishtank.com/data/online-valid.json.gz'
 
 feeds:
   urls:
@@ -26,4 +28,3 @@ feeds:
       - description
       - altid
       - additional_data
-

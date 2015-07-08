@@ -1,7 +1,7 @@
 parser: rss
 defaults:
   provider: zeustracker.abuse.ch
-  tlp: amber
+  tlp: white
   alt_tlp: green
   confidence: 85
   altid: https://zeustracker.abuse.ch/monitor.php?search=<observable>
@@ -59,7 +59,7 @@ feeds:
     description: dropzone
     pattern:
       description:
-        pattern: '^URL: ([^\,]+), status: online|offline$'
+        pattern: '^URL: ([^\,]+), status: \w+$'
         values: observable
 
   domains:

@@ -2,12 +2,13 @@ defaults:
   tags: phishing
   protocol: tcp
   provider: openphish.com
-  altid_tlp: green
-  tlp: amber
+  tlp: green
   confidence: 65
   values: observable
+  description: 'URL found in phishing campaign'
+  altid: 'https://openphish.com/feed.txt'
 feeds:
   urls:
     otype: url
     pattern: ^(\S+)$
-    remote: http://openphish.com/feed.txt
+    remote: https://openphish.com/feed.txt

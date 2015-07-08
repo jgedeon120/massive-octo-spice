@@ -1,6 +1,6 @@
 defaults:
   provider: palevotracker.abuse.ch
-  tlp: amber
+  tlp: white
   alt_tlp: green
   altid: https://palevotracker.abuse.ch/
   tags:
@@ -9,15 +9,19 @@ defaults:
 
 feeds:
   domains:
+    otype: fqdn
     remote: https://palevotracker.abuse.ch/blocklists.php?download=domainblocklist
     pattern: ^(\S+)$
     values:
       - observable
     confidence: 75
+    description: 'Palevo C&C Domain'
 
   ips:
+    otype: ipv4
     remote: https://palevotracker.abuse.ch/blocklists.php?download=ipblocklist
     pattern: ^(\S+)$
     values:
       - observable
     confidence: 65
+    description: 'Palevo C&C Address'

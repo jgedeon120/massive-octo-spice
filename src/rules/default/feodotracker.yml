@@ -1,6 +1,6 @@
 defaults:
   provider: feodotracker.abuse.ch
-  tlp: amber
+  tlp: green
   alt_tlp: green
   confidence: 75
   altid: https://feodotracker.abuse.ch/host/<observable>
@@ -10,15 +10,24 @@ defaults:
 
 feeds:
   domains:
+    otype: fqdn
     remote: https://feodotracker.abuse.ch/blocklist/?download=domainblocklist
     pattern: ^(\S+)$
-    values:
-      - observable
+    values: observable
+    description: 'Feodo Botnet Domain'
 
   ips:
+    otype: ipv4
     remote: https://feodotracker.abuse.ch/blocklist/?download=ipblocklist
     pattern: ^(\S+)$
-    values:
-      - observable
+    values: observable
     confidence: 65
+    description: 'Feodo Botnet IP'
 
+  badips:
+    otype: ipv4
+    remote: https://feodotracker.abuse.ch/blocklist/?download=badips
+    pattern: ^(\S+)$
+    values: observable
+    confidence: 95
+    description: 'Feodo Botnet Server IP'

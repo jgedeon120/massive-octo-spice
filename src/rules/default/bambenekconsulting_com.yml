@@ -1,17 +1,24 @@
+parser: csv
 defaults:
   provider: osint.bambenekconsulting.com
-  tlp: amber
+  tlp: white
   confidence: 85
   alt_tlp: green
-  tags:
-    - botnet
   values:
-      - observable
-      - description
-      - lasttime
-      - altid
+    - observable
+    - description
+    - lasttime
+    - altid
 
 feeds:
-  domains:
+  c2_masterlist:
+    remote: http://osint.bambenekconsulting.com/feeds/c2-masterlist.txt
+    tags:
+      - botnet
+      - malware
+
+  c2_dommasterlist:
     remote: http://osint.bambenekconsulting.com/feeds/c2-dommasterlist.txt
-    pattern: ^(\S+)\,Domain used by ([^,]+)\,([^,]+)\,(\S+)$
+    tags:
+      - botnet
+      - malware

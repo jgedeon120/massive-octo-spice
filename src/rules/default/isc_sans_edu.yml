@@ -1,18 +1,20 @@
 defaults:
-  tlp: amber
+  tlp: green
   provider: 'isc.sans.edu'
-  pattern:  '^(\S+)$'
+  pattern:  ^(\S+)$
   values: observable
   tags: suspicious
   skip: '^Site$'
+  description: 'Suspicious Domain'
+  otype: fqdn
 
 feeds:
-  02_domains_low:
+  domains_low:
     confidence: 65
     remote: http://isc.sans.edu/feeds/suspiciousdomains_Low.txt
-  01_domains_medium:
+  domains_medium:
     confidence: 75
     remote:  http://isc.sans.edu/feeds/suspiciousdomains_Medium.txt
-  00_domains_high:
+  domains_high:
     confidence: 85
     remote: http://isc.sans.edu/feeds/suspiciousdomains_High.txt

@@ -6,15 +6,14 @@ defaults:
     - suspicious
     - hijacked
   altid: http://www.spamhaus.org/sbl/sbl.lasso?query=<reference>
-  altid_tlp: green
-  pattern: '^(\S+)\s;\s(\S+)$'
+  pattern: ^(\S+)\s;\s(\S+)$
   values:
     - observable
     - reference
+  description: 'Network blacklisted on Spamhaus SBL'
 
 feeds:
   drop:
     remote: http://www.spamhaus.org/drop/drop.txt
   edrop:
     remote: http://www.spamhaus.org/drop/edrop.txt
-

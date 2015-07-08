@@ -3,15 +3,15 @@ defaults:
   protocol: tcp
   provider: 1d4.us
   altid_tlp: green
-  tlp: amber
+  tlp: green
   confidence: 65
   pattern: ^(\S+)$
-  values:
-    - observable
-    - null
+  values: observable
+  altid: 'http://1d4.us/archive/ssh-today.txt'
+  description: 'SSH Bruteforce IP Address'
+
 feeds:
   ssh:
     remote: http://1d4.us/archive/ssh-today.txt
     application: ssh
     portlist: 22
-

@@ -1,15 +1,28 @@
 defaults:
   provider: rules.emergingthreats.net
   confidence: 65
-  tlp: amber
-  tags:
-    - malware
+  tlp: white
+  tags: malware
   altid: http://rules.emergingthreats.net/blockrules/compromised-ips.txt
   altid_tlp: green
-  pattern: '^(\S+)$'
-  values:
-    - observable
+  pattern: ^(\S+)$
+  values: observable
+  description: 'IP from ET compromised ips list'
 
 feeds:
   compromised-ips:
     remote: http://rules.emergingthreats.net/blockrules/compromised-ips.txt
+
+  bad-ips:
+    otype: ipv4
+    remote: https://raw.githubusercontent.com/EmergingThreats/et-open-bad-ip-list/master/IPs.txt
+    pattern: ^(\w{3} \d{2} \d{4}); ([^;]+); (.+)$
+    values:
+      - reporttime
+      - observable
+      - description
+    confidence: 85
+    altid: 'https://raw.githubusercontent.com/EmergingThreats/et-open-bad-ip-list/master/IPs.txt'
+    tags:
+      - botnet
+      - malicious

@@ -3,7 +3,7 @@ defaults:
   tags: scanner
   protocol: tcp
   provider: dragonresearchgroup.org
-  altid_tlp: green
+  altid_tlp: amber
   tlp: amber
   confidence: 85
   values:
@@ -17,8 +17,18 @@ feeds:
     remote: http://dragonresearchgroup.org/insight/sshpwauth.txt
     application: ssh
     portlist: 22
+    description: 'SSH Scanner with auth attempts'
+    altid: 'http://dragonresearchgroup.org/insight/sshpwauth.txt'
   vnc:
     remote: http://dragonresearchgroup.org/insight/vncprobe.txt
     application: vnc
     portlist: 5900-5904
-
+    description: 'VNC Scanner'
+    altid: 'http://dragonresearchgroup.org/insight/vncprobe.txt'
+  http:
+    remote: http://dragonresearchgroup.org/insight/http-report.txt
+    application: http
+    portlist: 80
+    altid: 'http://dragonresearchgroup.org/insight/http-report.txt'
+    confidence: 65
+    description: 'HTTP Scanner'

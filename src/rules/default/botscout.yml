@@ -5,9 +5,11 @@ defaults:
   provider: botscout.com
   remote: http://botscout.com/last_caught_cache.htm
   tags: botnet
+  altid: 'Bot/Botnet named <description>'
 
 feeds:
-  bots:
+  bot_ips:
+    otype: ipv4
     map:
       - Bot Name
       - Bot Email
@@ -18,4 +20,15 @@ feeds:
       - null
       - observable
       - null
-
+  bot_email:
+    otype: email
+    map:
+      - Bot Name
+      - Bot Email
+      - Bot Ip
+      - From
+    values:
+      - description
+      - observable
+      - null
+      - null

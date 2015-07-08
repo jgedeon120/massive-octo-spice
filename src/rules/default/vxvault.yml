@@ -1,13 +1,17 @@
 defaults:
   provider: vxvault.net
-  confidence: 75
-  tlp: amber
+  confidence: 95
+  tlp: green
   tags: malware
+  description: 'Known Url for malware'
   altid_tlp: green
+  altid: 'http://vxvault.net/URL_List.php'
   values:
     - observable
 
+
 feeds:
   urls:
+    otype: url
     remote: http://vxvault.net/URL_List.php
-    pattern: '^(http:\/\/\S+)$'
+    pattern: ^(\S+)$
