@@ -14,9 +14,9 @@ if [ `whoami` != 'root' ]; then
     exit 0
 fi
 
-if [ -d /opt/cif ]; then
-	bash upgrade.sh
-fi
+#if [ -d /opt/cif ]; then
+#	bash upgrade.sh
+#fi
 
 apt-get update
 apt-get install -qq software-properties-common python-software-properties
@@ -34,42 +34,42 @@ else
     echo "deb http://packages.elasticsearch.org/elasticsearch/1.4/debian stable main" >> /etc/apt/sources.list.d/elasticsearch.list
 fi
 
-debconf-set-selections <<< "postfix postfix/mailname string localhost"
-debconf-set-selections <<< "postfix postfix/main_mailer_type string 'Internet Site'"
+#debconf-set-selections <<< "postfix postfix/mailname string localhost"
+#debconf-set-selections <<< "postfix postfix/main_mailer_type string 'Internet Site'"
 
-apt-get update
-apt-get install -y monit geoipupdate curl build-essential libmodule-build-perl libssl-dev elasticsearch apache2 libapache2-mod-perl2 curl mailutils build-essential git-core automake rng-tools openjdk-7-jre-headless libtool pkg-config vim htop bind9 libzmq3-dev libffi6 libmoose-perl libmouse-perl libanyevent-perl liblwp-protocol-https-perl libxml2-dev libexpat1-dev libgeoip-dev geoip-bin python-dev starman ntp
+#apt-get update
+#apt-get install -y monit geoipupdate curl build-essential libmodule-build-perl libssl-dev elasticsearch apache2 libapache2-mod-perl2 curl mailutils build-essential git-core automake rng-tools openjdk-7-jre-headless libtool pkg-config vim htop bind9 libzmq3-dev libffi6 libmoose-perl libmouse-perl libanyevent-perl liblwp-protocol-https-perl libxml2-dev libexpat1-dev libgeoip-dev geoip-bin python-dev starman ntp
 
 # set up the firewall
-bash firewall.sh
+#bash firewall.sh
 
 #if [ ! -d /usr/share/elasticsearch/plugins/marvel ]; then
 #    echo 'installing marvel for elasticsearch...'
 #    /usr/share/elasticsearch/bin/plugin -i elasticsearch/marvel/latest
 #fi
 
-echo 'installing cpanm...'
-curl -L https://cpanmin.us | sudo perl - App::cpanminus
-alias cpanm='cpanm --wget --mirror https://cpan.metacpan.org'
+#echo 'installing cpanm...'
+#curl -L https://cpanmin.us | sudo perl - App::cpanminus
+#alias cpanm='cpanm --wget --mirror https://cpan.metacpan.org'
 
-cpanm Regexp::Common
-cpanm Moo@1.007000
-cpanm Mouse@2.4.1
-cpanm ZMQ::FFI@0.17
-cpanm --force --notest https://github.com/csirtgadgets/ZMQx-Class/archive/master.tar.gz
-cpanm Log::Log4perl@1.44
-cpanm Test::Exception@0.32
-cpanm MaxMind::DB::Reader@0.050005
-cpanm GeoIP2@0.040005
-cpanm Hijk@0.19
-cpanm https://github.com/csirtgadgets/p5-cif-sdk/archive/master.tar.gz
-cpanm https://github.com/kraih/mojo/archive/v5.82.tar.gz
-cpanm Search::Elasticsearch@1.19
+#cpanm Regexp::Common
+#cpanm Moo@1.007000
+#cpanm Mouse@2.4.1
+#cpanm ZMQ::FFI@0.17
+#cpanm --force --notest https://github.com/csirtgadgets/ZMQx-Class/archive/master.tar.gz
+#cpanm Log::Log4perl@1.44
+#cpanm Test::Exception@0.32
+#cpanm MaxMind::DB::Reader@0.050005
+#cpanm GeoIP2@0.040005
+#cpanm Hijk@0.19
+#cpanm https://github.com/csirtgadgets/p5-cif-sdk/archive/master.tar.gz
+#cpanm https://github.com/kraih/mojo/archive/v5.82.tar.gz
+#cpanm Search::Elasticsearch@1.19
 
-echo 'HRNGDEVICE=/dev/urandom' >> /etc/default/rng-tools
-service rng-tools restart
+#echo 'HRNGDEVICE=/dev/urandom' >> /etc/default/rng-tools
+#service rng-tools restart
 
-bash apache.sh
+#bash apache.sh
 
 if [ -z `getent passwd $MYUSER` ]; then
     echo "adding user: $MYUSER"
@@ -78,7 +78,7 @@ if [ -z `getent passwd $MYUSER` ]; then
 fi
 
 echo 'starting elastic search'
-update-rc.d elasticsearch defaults 95 10
+#update-rc.d elasticsearch defaults 95 10
 service elasticsearch restart
 
 set +e
@@ -87,11 +87,11 @@ curl -XDELETE http://localhost:9200/_template/template_cif_observables > /dev/nu
 curl -XDELETE http://localhost:9200/_template/template_cif_tokens > /dev/null 2>&1
 set -e
 
-cd ../../../
+#cd ../../../
 
 ./configure --enable-geoip --sysconfdir=/etc/cif --localstatedir=/var --prefix=/opt/cif
 make && make deps NOTESTS=-n
-make test
+#make test
 make install
 make fixperms
 make elasticsearch
@@ -152,8 +152,8 @@ echo 'copying init.d scripts...'
 update-rc.d cif-services defaults 99 01
 
 cd hacking/platforms/ubuntu
-bash bind9.sh
-cd ../../../
+#bash bind9.sh
+#cd ../../../
 
 echo 'staring cif-services...'
 sudo service cif-services start
