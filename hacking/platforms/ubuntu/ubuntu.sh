@@ -87,7 +87,7 @@ curl -XDELETE http://localhost:9200/_template/template_cif_observables > /dev/nu
 curl -XDELETE http://localhost:9200/_template/template_cif_tokens > /dev/null 2>&1
 set -e
 
-#cd ../../../
+cd ../../../
 
 ./configure --enable-geoip --sysconfdir=/etc/cif --localstatedir=/var --prefix=/opt/cif
 make && make deps NOTESTS=-n
