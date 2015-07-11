@@ -3,7 +3,6 @@ defaults:
   tlp: green
   confidence: 90
   tags: malicious
-  group: everyone
   skip: '^Export .+$'
   pattern: ^(\S+)$
   description: 'Address seen sending viruses via mail servers'

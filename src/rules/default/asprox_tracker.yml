@@ -3,7 +3,6 @@ defaults:
   tlp: white
   confidence: 75
   tags: botnet
-  group: everyone
   description: 'Asprox C&C Site'
 
 feeds:
